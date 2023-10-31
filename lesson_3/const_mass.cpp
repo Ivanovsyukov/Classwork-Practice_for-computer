@@ -1,7 +1,17 @@
 #include <iostream>
-const int n=15;
+const int n=2048;
 long long int a[n], b[n], c[n], d[n];
 //Первый массив - числа от 1 до n, второй - сумма предыдущей и следующей, третьи - квадраты чисел
+
+int LenNumber(long long int f){
+    int t=0;
+    while(f!=0){
+        t+=1;
+        f/=10;
+    }
+    return t;
+}
+
 void printArray(long long int M[], int n, const char * name){
     std::cout << name << "--- ";
     for (int i=0; i<n; ++i){
@@ -27,7 +37,7 @@ int main(){
         std::cout << (double)c[i]/b[i] << " ";
     }
     std::cout << std::endl;
-    long long int prom;
+    long long int prom, max=0;
     for (int i=0; i<n; ++i){
         prom =c[i];
         d[i]=0;
@@ -35,7 +45,17 @@ int main(){
             d[i]+=prom%2;
             prom/=2;
         }
+        if (max<d[i]){
+            max=d[i];
+        }
     }
     printArray(d, n, "Count bit of number in third array");
+    long long int len_m=LenNumber(max);
+    for (int i=0; i<n; ++i){
+        for (int j=0; j<(len_m-LenNumber(d[i])); ++j){
+            std::cout << " ";
+        }
+        std::cout << d[i] << std::endl;
+    }
     return 0;
 }
