@@ -1,6 +1,6 @@
 #include <iostream>
 const int n=15;
-long long int a[n], b[n], c[n];
+long long int a[n], b[n], c[n], d[n];
 //Первый массив - числа от 1 до n, второй - сумма предыдущей и следующей, третьи - квадраты чисел
 void printArray(long long int M[], int n, const char * name){
     std::cout << name << "--- ";
@@ -27,5 +27,15 @@ int main(){
         std::cout << (double)c[i]/b[i] << " ";
     }
     std::cout << std::endl;
+    long long int prom;
+    for (int i=0; i<n; ++i){
+        prom =c[i];
+        d[i]=0;
+        while(prom!=0){
+            d[i]+=prom%2;
+            prom/=2;
+        }
+    }
+    printArray(d, n, "Count bit of number in third array");
     return 0;
 }
