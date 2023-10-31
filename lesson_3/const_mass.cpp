@@ -1,6 +1,8 @@
 #include <iostream>
+const int n=15;
+long long int a[n], b[n], c[n];
 //Первый массив - числа от 1 до n, второй - сумма предыдущей и следующей, третьи - квадраты чисел
-void printArray(int M[], int n, const char * name){
+void printArray(long long int M[], int n, const char * name){
     std::cout << name << "--- ";
     for (int i=0; i<n; ++i){
         std::cout << M[i] << " ";
@@ -9,19 +11,21 @@ void printArray(int M[], int n, const char * name){
 }
 
 int main(){
-    const int n=15;
-    int a[n], b[n], c[n];
     for (int i=0; i<n; ++i){
         if (i>1){
-            b[i]=b[i-1]+i;
+            b[i]=b[i-1]+i+1;
         } else{
-            b[i]=i;
+            b[i]=i+1;
         }
-        a[i]=i;
-        c[i]=i*i;
+        a[i]=i+1;
+        c[i]=(i+1)*(i+1);
     }
-    printArray(a, n, "Count from 0 to n-1");
+    printArray(a, n, "Count from 1 to n");
     printArray(b, n, "Sum number a");
-    printArray(c, n, "Square of number from 0 to n-1");
+    printArray(c, n, "Square of number from 1 to n");
+    for (int i=0; i<n; ++i){
+        std::cout << (double)c[i]/b[i] << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
