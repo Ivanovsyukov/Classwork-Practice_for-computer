@@ -1,5 +1,14 @@
 #include <iostream>
 
+template <typename T>
+T getElement(T *p, size_t r, size_t c, size_t rowlen){
+    return p[r*rowlen+c];
+}
+template <typename T>
+T setElement(T newvalue, T *p, size_t r, size_t c, size_t rowlen){
+    return p[r*rowlen+c];
+}
+
 int main(){
     int a[2][3]={{1, 2, 3}, {4, 5, 6}};
     for (size_t r=0; r<2; ++r){
@@ -31,5 +40,11 @@ int main(){
         std::cout << std::endl;
     }
     std::cout << "Sizeof(w) " << sizeof(w) << std::endl;
+    for (size_t r=0; r<2; ++r){
+        for (size_t c=0; c<3; ++c){
+            std::cout << getElement(w, r, c, 2) << " ";
+        }
+        std::cout << std::endl;
+    }
     return 0;
 }
