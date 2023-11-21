@@ -14,6 +14,9 @@ int main(){
     while(true){
         fs.get(sym);
         if(fs.eof()) break;
+        if (sym=='\n'){
+            sym=' ';
+        }
         char *tmp=new char[len_c+1];
         for(size_t k=0; k<len_c; ++k){
             tmp[k]=c[k];
