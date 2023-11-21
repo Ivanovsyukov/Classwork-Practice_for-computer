@@ -1,5 +1,6 @@
 {
     "configurations": [
+
         {
             "name": "C/C++: g++.exe сборка и отладка активного файла",
             "type": "cppdbg",
@@ -25,6 +26,17 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++.exe сборка активного файла"
+        },
+        {
+            "name": "(Windows) Запустить",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "Введите имя программы, например: ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "console": "externalTerminal"
         }
     ],
     "version": "2.0.0"
