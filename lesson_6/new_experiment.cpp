@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <chrono>
 
@@ -31,7 +32,7 @@ int main(){
                 std::cout << buffer[k];
             }
             */
-            ofs<<value;
+            ofs<<std::setprecision(16.3)<<value;
             s+=value;
             break;
         }
@@ -41,7 +42,7 @@ int main(){
         }
         */
         ++count;
-        ofs<<value<<" ";
+        ofs<<std::setprecision(16.3)<<value<<" "; //увеличение точности
         s+=value;
     }
     std::cout << s << std::endl;
