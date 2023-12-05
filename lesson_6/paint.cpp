@@ -30,8 +30,6 @@ int main(int argc, char* argv[]){
     int all=0;
     bool p=true;
     while(!ifs.fail()){
-        all+=1;
-        ifs.read(reinterpret_cast<char*>(&sym), sizeof(sym));
         if (all>18 && all<=26){
             ofs.seekg(4, std::ios_base::cur);
             for (int i=0; i<4; ++i){
@@ -47,6 +45,8 @@ int main(int argc, char* argv[]){
             all+=4;
             ofs.seekg(8, std::ios_base::cur);
         } else {
+            all+=1;
+            ifs.read(reinterpret_cast<char*>(&sym), sizeof(sym));
             ofs.write(reinterpret_cast<char*>(&sym), sizeof(sym));
         }
     }
