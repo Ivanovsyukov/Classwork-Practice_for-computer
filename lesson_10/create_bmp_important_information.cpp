@@ -16,7 +16,7 @@ int main(){
         return 1;
     }
     char s;
-    for(int i=0; i<54; ++i){
+    for(int i=0; i<62; ++i){
         one >> s;
         out << s;
     }
