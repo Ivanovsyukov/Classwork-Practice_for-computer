@@ -39,12 +39,14 @@ unsigned char* create_bmp(int weight, int height){
                 bmp[i]=s;
             }
         } else {
-            bmp[i]=0;
+            bmp[i]=170;
         }
     }
+    /*
     for(int i=0; i<bite_size; ++i){
         std::cout<<static_cast<int>(bmp[i])<<" ";
     }
+    */
     std::cout << std::endl << static_cast<unsigned int>(bite_size) << " " << bite_size << std::endl;
     temp.close();
     return bmp;
